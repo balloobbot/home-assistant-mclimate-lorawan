@@ -1,0 +1,50 @@
+{
+  "config": {
+    "abort": {
+      "already_configured": "MClimate is already configured",
+      "no_lorawan_connections": "Set up a LoRaWAN connection first.",
+      "no_supported_devices": "No supported MClimate devices were found on your LoRaWAN connections.",
+      "single_instance_allowed": "MClimate is already configured"
+    },
+    "step": {
+      "confirm": {
+        "description": "Set up MClimate devices from your LoRaWAN connections."
+      }
+    }
+  },
+  "entity": {
+    "sensor": {
+      "battery_voltage": {
+        "name": "Battery voltage"
+      },
+      "trigger_count": {
+        "name": "PIR trigger count"
+      },
+      "valve_position": {
+        "name": "Valve opening"
+      },
+      "internal_temperature": {
+        "name": "Internal temperature"
+      }
+    },
+    "binary_sensor": {
+      "motor_problem": {
+        "name": "Motor problem"
+      },
+      "sensor_problem": {
+        "name": "Sensor problem"
+      },
+      "calibration_failed": {
+        "name": "Calibration failed"
+      }
+    }
+  },
+  "exceptions": {
+    "command_timeout": {
+      "message": "Timed out waiting for the device to acknowledge the command."
+    },
+    "command_failed": {
+      "message": "Unable to send the command to the device."
+    }
+  }
+}
