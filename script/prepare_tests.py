@@ -1,18 +1,20 @@
-"""Prepare English sensor names for tests using a Core Git installation."""
+"""Prepare English entity names for tests using a Core Git installation."""
 
 import json
 from pathlib import Path
 
 import homeassistant
 
-sensor = Path(homeassistant.__file__).parent / "components" / "sensor"
-translation = sensor / "translations" / "en.json"
-if not translation.exists():
-    strings = json.loads((sensor / "strings.json").read_text())
+for domain in ("sensor", "binary_sensor"):
+    component = Path(homeassistant.__file__).parent / "components" / domain
+    translation = component / "translations" / "en.json"
+    if translation.exists():
+        continue
+    strings = json.loads((component / "strings.json").read_text())
     names = {
         key: {
             "name": value["name"].replace(
-                "[%key:component::sensor::title%]", strings["title"]
+                f"[%key:component::{domain}::title%]", strings["title"]
             )
         }
         for key, value in strings["entity_component"].items()
